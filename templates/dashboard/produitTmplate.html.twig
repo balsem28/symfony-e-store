@@ -1,0 +1,28 @@
+{% block stylesheets %}}
+    <link rel="stylesheet" href="/media/css/produit.css">
+
+
+
+
+{% endblock %}
+{% block body %}
+    <div class="n">
+        <nav>
+            <h4 class="f">Les produits disponibles pour la catégorie {{ categorie.name }}</h4>
+            <div class="retour"><a href="{{ path('dashboard') }}"> <img src="/media/images/retour.png"> Retourner a la liste</a></div>
+        </nav>
+    </div>
+
+    <div class="produit-container">
+        {% for produit in produits %}
+            <div class="produit-item">
+                <div class="im"><img src="/upload_directory/{{ produit.fileName }}" alt="Product Image"></div>
+                <div class="details">
+                    <div class="name">{{ produit.name }} </div>
+                    <div class="description">{{ produit.description }}</div>
+                </div>
+                <div class="prix">{{ produit.prix }} DT</div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

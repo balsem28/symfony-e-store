@@ -1,0 +1,85 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #d9d4d4;
+    overflow: auto !important;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding-top: 56px; /* Adjust based on your header height */
+    box-shadow: 0 5px 10px rgb(10, 10, 10);
+    background-color: rgb(70, 140, 253) !important;
+    border-radius: 10px;
+    font-size: medium;
+    color: black;
+
+
+
+
+
+}
+
+
+.sidebar-sticky {
+    position: relative;
+    top: 56px; /* Adjust based on your header height */
+    padding: 20px;
+}
+
+.sidebar .nav-link {
+    position: relative;
+
+    font-size: 15px;
+    color: #0a0a0a;
+    padding-left: 0;
+    padding-bottom: 50px;
+}
+
+.sidebar .nav-link:hover {
+    color: #ffffff;
+}
+
+.sidebar .nav-link.active:hover {
+
+    color: #ffffff;
+
+
+}
+
+
+main {
+    padding: 20px;
+}
+.Logout{
+    position: relative;
+    padding-top: 200px;
+
+}
+.projet{
+    border-bottom: 2px solid #e6ecf3; /* Couleur de la ligne (bleu dans cet exemple) */
+    padding-bottom: 10px;
+
+}
+.h2{
+    color: #0a0a0a;
+}
+.projet:hover{
+    color: #ffffff;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+

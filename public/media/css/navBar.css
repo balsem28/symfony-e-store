@@ -1,0 +1,84 @@
+.n {
+    display: flex;
+    justify-content: space-between; /* Align items to the start and end of the container */
+    align-items: center; /* Center items vertically */
+    background-color: rgb(70, 140, 253);
+    color: #0a0a0a;
+    padding: 10px;
+    margin-left: 248px;
+    border-radius: 15px;
+    box-shadow: 5px 3px 10px #0a0a0a;
+    position: fixed;
+    width: 100%;
+    transition: background-color 0.5s ease;
+    z-index: 1;
+
+}
+
+.f {
+    margin: 0; /* Remove default margin for <h4> */
+    font-size: 30px;
+}
+.container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+     /* Adjust the margin to account for the fixed navbar height */
+}
+
+.add-button {
+    margin-bottom: 100px;
+    margin-left: -720px;
+    margin-top: -110px;
+    top: 200px; /* Adjust the top position as needed */
+    border-radius: 10px;
+    overflow: hidden;
+    border-color: #2563EB;
+    font-size: 20px;
+    background-color: rgb(70, 140, 253);
+    color: white;
+    position: absolute;
+    text-decoration: none;
+    box-shadow: 5px 3px 10px #0a0a0a;
+
+
+}
+a{
+    color: #0a0a0a;
+    text-decoration:none !important;
+}
+
+.add-button:hover {
+    background-color: #0a0a0a;
+}
+
+.table {
+    max-width: 70%;
+    margin-left: 60px;
+    margin-right: -100px;
+    position: absolute;
+    border-collapse: collapse;
+    top:140px; /* Adjust the top position as needed */
+    border-radius: 10px;
+    overflow: hidden;
+    border-color: #2563EB;
+    box-shadow: 5px 3px 10px #0a0a0a;
+
+
+}
+
+th, td {
+    border: 1px solid #0a0a0a;
+    text-align: left;
+    padding: 12px; /* Adjust padding as needed */
+    font-size: 20px; /* Adjust font size as needed */
+    background-color: #9b9a9a;
+    white-space: normal;
+}
+
+th {
+    background-color: rgb(70, 140, 253);
+}

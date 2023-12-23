@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="/media/css/dashboard.css">
+    <link rel="stylesheet" href="/media/css/navBar.css">
+    <link rel="stylesheet" href="/media/css/main.css">
+
+
+
+
+{% endblock %}
+{% block body %}
+    <div class="n">
+        <nav >
+            <h4 class="f">Dashboard</h4>
+
+        </nav>
+    </div>
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Sidebar -->
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+                <div class="projet"><a href=""><h2>nom du projet</h2></a></div>
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ path('dashboard') }}">
+                                <img src="/media/images/dashboard.png" alt=""> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_categorie_index') }}">
+                                <img src="/media/images/new.png" alt="">Categorie</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_produit_index') }}">
+                                <img src="/media/images/new.png" alt="">Produit
+                            </a>
+                        </li>
+                        <div class="Logout">
+
+                            <a class="nav-link" href="{{ path('app_logout') }}">
+                                <img src="/media/images/logout.png" alt=""> Logout
+                            </a>
+
+
+                        </div>
+                    </ul>
+
+                </div>
+            </nav>
+
+
+
+        </div>
+    </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+{% endblock %}

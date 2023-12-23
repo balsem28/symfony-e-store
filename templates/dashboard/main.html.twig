@@ -1,0 +1,27 @@
+{% extends 'dashboard/dashboard.html.twig' %}
+
+{% block body %}
+    <div class="n">
+        <nav >
+            <h4 class="f">Dashboard</h4>
+
+        </nav>
+    </div>
+
+
+    <div class="container_block">
+        <h1>Categories</h1>
+        <ul class="category-list">
+            {% for categorie in categories %}
+
+
+                <li class="category-item"><a href="{{ path('get-produits-by-categorie', {'categorie': categorie.id})}} ">{{ categorie.name }}</a> </li>
+            {% endfor %}
+
+
+
+        </ul>
+    </div>
+    {{ parent() }}
+
+{% endblock %}

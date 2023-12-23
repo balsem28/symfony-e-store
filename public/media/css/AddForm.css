@@ -1,0 +1,79 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../images/ecomerce.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.transparent-form {
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the last value for increased transparency */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2); /* Adjust the last value for input border transparency */
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust the last value for input background transparency */
+}
+
+.form-button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    cursor: pointer;
+}
+
+.form-button:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+}
+.form-input-file {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.form-input,
+.form-input-file,
+.form-select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Other existing styles remain unchanged */
+
+/* Style for the select list arrow */
+.form-select::after {
+    content: '\25BC'; /* Unicode character for a downward arrow */
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}

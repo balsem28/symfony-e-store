@@ -1,0 +1,36 @@
+
+
+.container_block {
+    background-color: rgba(0, 255, 225, 0.06);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(70, 140, 253);
+    padding: 20px;
+    width: 300px;
+    margin-left: 270px;
+    position: absolute;
+    margin-top: 70px;
+    margin-bottom: 200px;
+    min-height: 100px; !important;
+}
+.container_block:hover{
+    transform: translateY(-5px);
+}
+
+.container_block.h1{
+    text-align: center !important;
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-item {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    padding: 10px;
+    text-align:left;
+    width: 100%;
+}
