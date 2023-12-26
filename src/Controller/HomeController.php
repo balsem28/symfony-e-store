@@ -15,8 +15,10 @@ class HomeController extends AbstractController
     #[Route('/home', name: 'categorie', methods: ['GET'])]
     public function categorie(CategorieRepository $categorieRepository): Response
     {
+
         return $this->render('client/home.html.twig', [
             'categories' => $categorieRepository->findAll(),
+
         ]);
     }
     #[Route('/produits/{categorie}', name:'client_product',methods: ['GET'])]

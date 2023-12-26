@@ -8,6 +8,7 @@
 
 
 {% block body %}
+    <h1>facture de la commande numéro {{ commande.id}} le {{ commande.date | date }} de {{ commande.users.name }}</h1>
 
     <div class="containertab">
 
@@ -45,19 +46,6 @@
             <tr>
                 <td>TOTALE</td>
                 <td colspan="4" style="text-align: right; color: red; font-size: 30px">{{ TOTALE }} DT</td>
-                {% set confirmationLinkGenerated = false %}
-
-                {% for detail in details %}
-                    {% if not confirmationLinkGenerated %}
-                        <td style="background-color: #0056b3 ;text-align: right">
-                            <div class="confirmCommande">
-                                <button><a href="{{ path('app_confirm_command', {'commande': detail.commande.id}) }}">confirmer ></a></button>
-                            </div>
-                        </td>
-                        {% set confirmationLinkGenerated = true %}
-                    {% endif %}
-                {% endfor %}
-
             </tr>
             </tfoot>
         </table>

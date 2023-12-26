@@ -45,4 +45,13 @@ class CommandeRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function findCommandeByUserId(int $userId): ?Commande
+    {
+        return $this->createQueryBuilder('c')
+            ->join('c.users', 'u') // Change 'users' to your actual association name
+            ->andWhere('u.id = :userId')
+            ->setParameter('userId', $userId)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }
