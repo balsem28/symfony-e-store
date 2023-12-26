@@ -24,6 +24,9 @@ class RegistrationFormType extends AbstractType
             ->add("phonNumber")
             ->add("adress")
             ->add('email')
+            ->add('roles', HiddenType::class, [
+                'data' => ['ROLE_CLIENT'],
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -52,6 +55,18 @@ class RegistrationFormType extends AbstractType
             ->add('isVerified', HiddenType::class, [
                 'mapped' => false, // Ensure the field is not mapped to an entity property
             ]);
+        $builder->get('roles')
+            ->addModelTransformer(new CallbackTransformer(
+                function ($tagsAsArray): string{
+                    // transform the array to a string
+                    return implode(', ', $tagsAsArray);
+                },
+                function ($tagsAsString): array{
+                    // transform the string back to an array
+                    return explode(', ', $tagsAsString);
+                }
+            ))
+        ;
 
 
 

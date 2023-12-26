@@ -1,0 +1,67 @@
+{% extends 'dashboard/dashboard.html.twig' %}
+
+{% block title %}Produit index{% endblock %}
+
+{% block body %}
+    <div class="n">
+        <nav >
+            <h4 class="f">gestion des Utilisateur</h4>
+
+        </nav>
+    </div>
+
+    <div class="container">
+        <button class="add-button" >
+            <a href="{{ path('AllUsers') }}"> Ajouter Produit</a></button>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>nom</th>
+                <th>numero de telephone</th>
+                <th>adress</th>
+                <th>email</th>
+                <th>actions</th>
+
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.phonNumber }}</td>
+                    <td>{{ user.adress }}</td>
+                    <td>{{ user.email }}</td>
+
+
+                    <td>
+                        <form method="post" action="{{ path('delete_user', {'id': user.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+                            <button class="btn"><img src="/media/images/delete.gif">Delete</button>
+                        </form>
+
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {{ parent() }}
+
+
+
+
+
+
+
+
+
+{% endblock %}

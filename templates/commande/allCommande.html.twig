@@ -1,0 +1,56 @@
+{% extends 'dashboard/dashboard.html.twig' %}
+
+{% block body %}
+    <div class="n">
+        <nav >
+            <h4 class="f">gestion des categorie</h4>
+
+        </nav>
+    </div>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>date</th>
+                <th>verifie</th>
+                <th>Action</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for commande in commandes %}
+                <tr>
+                    <td>{{ commande.id }}</td>
+                    <td>{{ commande.date | date}}</td>
+                    <td>{{ commande.verifie }}</td>
+
+                    <td>
+                        <a href="{{ path('commande_detaille', {'commande': commande.id}) }}"><img src="/media/images/edit.gif"> confirmer</a> <form method="post" action="{{ path('commande_delete', {'id': commande.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ commande.id) }}">
+                            <button class="btn"><img src="/media/images/delete.gif">Delete</button>
+                        </form>
+
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+    {{ parent() }}
+
+
+{% endblock %}

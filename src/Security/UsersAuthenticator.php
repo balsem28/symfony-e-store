@@ -52,7 +52,7 @@ class UsersAuthenticator extends AbstractLoginFormAuthenticator
         $user = $token->getUser();
         if ($user instanceof Users){
             if ($user->isVerified()){
-                if ($user->getRoles() == "ROLE_ADMIN"){
+                if (in_array("ROLE_SUPERADMIN",$user->getRoles(),true)){
                     return new RedirectResponse($this->urlGenerator->generate("dashboard"));
                 }
             }

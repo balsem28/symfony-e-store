@@ -34,12 +34,12 @@
     margin-left: -720px;
     margin-top: -110px;
     top: 200px; /* Adjust the top position as needed */
-    border-radius: 10px;
-    overflow: hidden;
-    border-color: #2563EB;
-    font-size: 20px;
-    background-color: rgb(70, 140, 253);
-    color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        border-color: #2563EB;
+        font-size: 20px;
+        background-color: rgb(70, 140, 253);
+        color: white;
     position: absolute;
     text-decoration: none;
     box-shadow: 5px 3px 10px #0a0a0a;
@@ -61,7 +61,7 @@ a{
     margin-right: -100px;
     position: absolute;
     border-collapse: collapse;
-    top:140px; /* Adjust the top position as needed */
+    top:130px; /* Adjust the top position as needed */
     border-radius: 10px;
     overflow: hidden;
     border-color: #2563EB;

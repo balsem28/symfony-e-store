@@ -54,4 +54,13 @@ class ProduitRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function countAllProduit(): int
+    {
+        return $this->createQueryBuilder('p')
+            ->select('COUNT(p.id) as produitCount') // Alias the count result
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
 }

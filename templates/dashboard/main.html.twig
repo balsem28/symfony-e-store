@@ -1,12 +1,9 @@
 {% extends 'dashboard/dashboard.html.twig' %}
 
 {% block body %}
-    <div class="n">
-        <nav >
-            <h4 class="f">Dashboard</h4>
+    {{ parent() }}
 
-        </nav>
-    </div>
+
 
 
     <div class="container_block">
@@ -15,13 +12,15 @@
             {% for categorie in categories %}
 
 
-                <li class="category-item"><a href="{{ path('get-produits-by-categorie', {'categorie': categorie.id})}} ">{{ categorie.name }}</a> </li>
+                <li class="category-item"><a href="{{ path('get-produits-by-categorie', {'categorie': categorie.id})}} " class="ca">{{ categorie.name }}</a> <div class="space-between"></div> </li>
             {% endfor %}
 
 
 
         </ul>
     </div>
-    {{ parent() }}
+    <div class="count"> <h1 class="titre">Totale utilisateur {{ count }}</h1></div>
+    <div class="countproduit"> <h1 class="titre">Totale produit {{ countProduit }}</h1></div>
+
 
 {% endblock %}

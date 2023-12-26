@@ -1,0 +1,78 @@
+
+{% block stylesheets %}}
+    <link rel="stylesheet" href="/media/css/panier.css">
+    <link rel="stylesheet" href="/media/css/home.css">
+
+{% endblock %}
+  {% block javascripts %}
+      <script src="/media/js/home.js"></script>
+
+  {% endblock %}
+
+{% block body %}
+    <div class="na">
+    <nav>
+        <div class="category-container" onmouseleave="hideCategories()">
+            <div class="category-text" id="categoryText" onmouseover="showCategories()">
+                Select a category
+            </div>
+            <div class="category-dropdown" id="categoryDropdown" style="display: none;">
+                {% for categorie in categories %}
+                    <div class="category-item" onclick="selectCategory('Electronics')">{{ categorie.name }}</div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+
+
+    </nav>
+    </div>
+    <div class="containertab">
+        <table class="tablepa">
+            <thead>
+            <tr>
+                <td>Produit</td>
+                <td>Prix</td>
+                <td>Quantite</td>
+                <td>Total</td>
+                <td>Action</td>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for element in dataPanier  %}
+            <tr>
+                <td>{{ element.produit.name }}</td>
+                <td>{{ element.produit.prix }} DT</td>
+                <td>{{ element.quantite }}</td>
+                <td>{{ element.quantite * element.produit.prix}} DT</td>
+                <td>
+                    <a href="{{ path('add', {id : element.produit.id}) }}"> <img src="/media/images/plus.png"> </a>
+                    <a href="{{ path('remove', {id : element.produit.id}) }}"> <img src="/media/images/moins.png"> </a>
+                    <a href="{{ path('delete', {id : element.produit.id}) }}"> <img src="/media/images/supprimer.png"> </a>
+                </td>
+
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5" style="text-align: center"  ><h3 style="font-size: 40px">produit n'existe pas</h3></td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <td>TOTALE</td>
+                <td colspan="4" style="text-align: right"><h3> {{ totale }} DT</h3></td>
+            </tr>
+            </tfoot>
+        </table>
+        <div class="back"> <button> <a href="{{ path('categorie') }}">< continuer mes Achats </a></button></div>
+        <div class="commander"> <button> <a href="{{ path('app_commande') }}">commander > </a></button></div>
+    </div>
+
+
+
+
+{% endblock %}

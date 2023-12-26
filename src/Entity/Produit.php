@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProduitRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
@@ -30,6 +32,14 @@ class Produit
 
     #[ORM\Column]
     private ?float $prix = null;
+
+    #[ORM\OneToMany(mappedBy: 'produit', targetEntity: DetailleCommande::class, orphanRemoval: true)]
+    private Collection $detailleCommande;
+
+    public function __construct()
+    {
+        $this->detailleCommande = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -105,6 +115,36 @@ class Produit
     public function setPrix(float $prix): static
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, DetailleCommande>
+     */
+    public function getDetailleCommande(): Collection
+    {
+        return $this->detailleCommande;
+    }
+
+    public function addDetailleCommande(DetailleCommande $detailleCommande): static
+    {
+        if (!$this->detailleCommande->contains($detailleCommande)) {
+            $this->detailleCommande->add($detailleCommande);
+            $detailleCommande->setProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDetailleCommande(DetailleCommande $detailleCommande): static
+    {
+        if ($this->detailleCommande->removeElement($detailleCommande)) {
+            // set the owning side to null (unless already changed)
+            if ($detailleCommande->getProduit() === $this) {
+                $detailleCommande->setProduit(null);
+            }
+        }
 
         return $this;
     }

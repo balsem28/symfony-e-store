@@ -1,0 +1,72 @@
+{% block stylesheets %}}
+    <link rel="stylesheet" href="/media/css/confirmCommande.css">
+
+
+
+
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="containertab">
+
+        <table class="tablepa">
+            <thead>
+            <tr>
+                <td>Produit</td>
+                <td>Prix</td>
+                <td>Quantite</td>
+                <td>Total</td>
+
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for detail in details  %}
+                <tr>
+                    <td>{{ detail.produit.name }}</td>
+                    <td>{{ detail.prix }} DT</td>
+                    <td>{{ detail.quantite }}</td>
+                    <td>{{ detail.totale}} DT</td>
+
+
+
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5" style="text-align: center"  ><h3 style="font-size: 40px">produit n'existe pas</h3></td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <td>TOTALE</td>
+                <td colspan="4" style="text-align: right; color: red; font-size: 30px">{{ TOTALE }} DT</td>
+                {% set confirmationLinkGenerated = false %}
+
+                {% for detail in details %}
+                    {% if not confirmationLinkGenerated %}
+                        <td style="background-color: #0056b3 ;text-align: right">
+                            <div class="confirmCommande">
+                                <button><a href="{{ path('app_confirm_command', {'id': detail.commande.id}) }}">confirmer ></a></button>
+                            </div>
+                        </td>
+                        {% set confirmationLinkGenerated = true %}
+                    {% endif %}
+                {% endfor %}
+
+            </tr>
+            </tfoot>
+        </table>
+
+
+    </div>
+
+
+
+
+
+{% endblock %}

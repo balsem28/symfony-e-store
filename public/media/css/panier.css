@@ -1,0 +1,70 @@
+
+.containertab {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+
+    /* Adjust the margin to account for the fixed navbar height */
+}
+
+
+
+.tablepa {
+
+    margin-left: 20px;
+
+    position: relative;
+    border-collapse: collapse;
+    top:0; /* Adjust the top position as needed */
+    border-radius: 10px;
+    overflow: hidden;
+    border-color: #2563EB;
+    box-shadow: 5px 3px 10px #0a0a0a;
+    width: 90%;
+
+
+}
+
+th, td {
+    border: 1px solid #0a0a0a;
+    text-align: left;
+    padding: 12px; /* Adjust padding as needed */
+    font-size: 20px; /* Adjust font size as needed */
+    background-color: #ffffff;
+    white-space: normal;
+}
+
+th {
+    background-color: rgb(255, 255, 255);
+}
+h3{
+    color: red;
+}
+.back{
+    position: relative;
+    left: -565px;
+    padding: 10px;
+
+}
+.commander{
+    position: relative;
+    right: -625px;
+    padding: 10px;
+    top: -50px;
+}
+button{
+    border-radius: 10px;
+    overflow: hidden;
+    border-color: #2563EB;
+    font-size: 20px;
+    background-color: rgb(70, 140, 253);
+    color: white;
+    text-decoration: none;
+    box-shadow: 5px 3px 10px #0a0a0a;
+}
+button:hover{
+    background-color: rgba(0, 255, 225, 0.73);
+}

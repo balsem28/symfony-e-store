@@ -5,32 +5,106 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgb(70, 140, 253);
     padding: 20px;
-    width: 300px;
+    width: 44%;
     margin-left: 270px;
     position: absolute;
     margin-top: 70px;
     margin-bottom: 200px;
     min-height: 100px; !important;
+    text-align: center ;
 }
 .container_block:hover{
     transform: translateY(-5px);
 }
 
 .container_block.h1{
-    text-align: center !important;
+
+
+}
+.ca{
+    text-align: center;
+    position: absolute;
+    margin-left: 155px;
+    font-size: 25px;
+    width: 50%;
+    margin-top: -10px;
+    mso-ascii-font-family: auto;
+    background-color: #3b82f6;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgb(15, 16, 16);
+
+
+}
+.ca:hover{transform: translateY(-5px);}
+.space-between {
+    margin-bottom: 20px; /* Adjust the value as needed */
+
 }
 
 .category-list {
     list-style: none;
     padding: 0;
     margin: 0;
+    text-align: center;
 }
 
 .category-item {
-    background-color: #f0f0f0;
+    background-color: rgba(0, 255, 225, 0.06);
     border-radius: 4px;
     margin-bottom: 8px;
     padding: 10px;
     text-align:left;
     width: 100%;
+}
+.count{
+    right: 177px;
+    z-index: 1;
+    margin-top: 72px;
+    /* margin-left: 331px; */
+    width: 25%;
+    height: 20%;
+    background-color: #0a0a0a;
+    color: white;
+    position: absolute;
+    text-align: center;
+    font-size: 19px;
+    border-radius: 8px;
+    background-color: rgba(0, 255, 225, 0.06);
+    box-shadow: 0 4px 8px rgb(70, 140, 253);
+}
+.count:hover{
+    transform: translateY(-5px);
+
+}
+.titre{
+    font-size: 40px;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 30px;
+    color: #0a0a0a;
+    mso-ascii-font-family: auto;
+    background-color: #3b82f6;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgb(15, 16, 16);
+}
+.countproduit{
+    right: 177px;
+    z-index: 1;
+    margin-top: 300px;
+    /* margin-left: 331px; */
+    width: 25%;
+    height: 20%;
+    background-color: #0a0a0a;
+    color: white;
+    position: absolute;
+    text-align: center;
+    font-size: 19px;
+    border-radius: 8px;
+    background-color: rgba(0, 255, 225, 0.06);
+    box-shadow: 0 4px 8px rgb(70, 140, 253);
+
+}
+.countproduit:hover{
+    transform: translateY(-5px);
+
 }

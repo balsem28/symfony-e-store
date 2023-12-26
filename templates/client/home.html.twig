@@ -1,0 +1,36 @@
+{% block stylesheets %}}
+    <link rel="stylesheet" href="/media/css/home.css">
+
+{% endblock %}
+    {% block javascripts %}
+        <script src="/media/js/home.js"></script>
+
+    {% endblock %}
+{% block body %}
+    <div class="na">
+        <nav>
+            <div class="category-container" onmouseleave="hideCategories()">
+                <div class="category-text" id="categoryText" onmouseover="showCategories()">
+                    Select a category
+                </div>
+                <div class="category-dropdown" id="categoryDropdown" style="display: none;">
+                   {% for categorie in categories %}
+                    <div class="category-item" onclick="selectCategory('Electronics')"><a href="{{ path('client_product', {'categorie': categorie.id})}} " class="ca">{{ categorie.name }}</a></div>
+                    {% endfor %}
+
+                </div>
+            </div>
+
+
+
+        </nav>
+
+    </div>
+    <div class="background-container">
+        <div>   </div>
+
+    </div>
+
+
+
+{% endblock %}

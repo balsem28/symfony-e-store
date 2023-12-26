@@ -82,6 +82,7 @@ class CategorieController extends AbstractController
 
     }
 
+
     #[Route('/{id}', name: 'app_categorie_delete', methods: ['POST'])]
     public function delete(Request $request, Categorie $categorie, EntityManagerInterface $entityManager): Response
     {
