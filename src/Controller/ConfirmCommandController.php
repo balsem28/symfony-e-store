@@ -27,9 +27,9 @@ class ConfirmCommandController extends AbstractController
         $this->emailVerifier = $emailVerifier;
     }
         #[Route('/facture/{commande}', name: 'facture', methods: ['GET'])]
-    public function detailleProduit(Commande $commande,DetailleCommandeRepository $detailleCommandeRepositorycommand,CommandeRepository $commandeRepository): Response
+    public function detailleProduit(Commande $commande,DetailleCommandeRepository $command,CommandeRepository $commandeRepository): Response
     {
-        $details = $detailleCommandeRepositorycommand->findByCommandeId($commande);
+        $details = $command->findByCommandeId($commande);
         $commande= $commandeRepository->find($commande);
         $TOTALE=0;
         foreach($details as $detail ){
@@ -76,7 +76,7 @@ class ConfirmCommandController extends AbstractController
         ]);
     }
     #[Route('/verify/email', name: 'app_verify_email_command')]
-    public function verifyUserEmail(Request $request, TranslatorInterface $translator, UsersRepository $usersRepository,CommandeRepository $commandeRepository, Commande $commande): Response
+    public function verifyUserEmail(Request $request, TranslatorInterface $translator, UsersRepository $usersRepository,CommandeRepository $commandeRepository): Response
     {
         $id = $request->query->get('id');
 
@@ -102,7 +102,7 @@ class ConfirmCommandController extends AbstractController
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
         $this->addFlash('success', 'Your email address has been verified.');
 
-        return $this->redirectToRoute('facture', ['commande' => $commandeRepository->find($commande)]);
+        return $this->redirectToRoute('facture', ['commande' => $commandeRepository->findCommandeByUserId($user->getId())->getId()]);
     }
 
 }

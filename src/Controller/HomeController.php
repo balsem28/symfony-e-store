@@ -8,11 +8,11 @@ use App\Repository\ProduitRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
+#[Route('/app')]
 class HomeController extends AbstractController
 {
 
-    #[Route('/home', name: 'categorie', methods: ['GET'])]
+    #[Route('/', name: 'categorie', methods: ['GET'])]
     public function categorie(CategorieRepository $categorieRepository): Response
     {
 

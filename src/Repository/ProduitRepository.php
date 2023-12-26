@@ -54,6 +54,33 @@ class ProduitRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+    public function findLaptop()
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.categorie', 'c')
+            ->andWhere('c.name = :categoryName')
+            ->setParameter('categoryName', 'laptop')
+            ->getQuery()
+            ->getResult();
+    }
+    public function findphone()
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.categorie', 'c')
+            ->andWhere('c.name = :categoryName')
+            ->setParameter('categoryName', 'telephone et tablette')
+            ->getQuery()
+            ->getResult();
+    }
+    public function findelectro()
+    {
+        return $this->createQueryBuilder('p')
+            ->join('p.categorie', 'c')
+            ->andWhere('c.name = :categoryName')
+            ->setParameter('categoryName', 'Electromenage')
+            ->getQuery()
+            ->getResult();
+    }
 
     public function countAllProduit(): int
     {

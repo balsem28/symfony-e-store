@@ -14,13 +14,13 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
+            access_denied_url: /app
             lazy: true
             provider: app_user_provider
             custom_authenticator: App\Security\UsersAuthenticator
             logout:
                 path: app_logout
-                # where to redirect after logout
-                # target: app_any_route
+                target: app_register
 
             remember_me:
                 secret: '%kernel.secret%'
@@ -39,7 +39,14 @@ security:
     access_control:
          - { path: ^/categorie, roles: ROLE_SUPERADMIN }
          - { path: ^/dashboard, roles: ROLE_SUPERADMIN }
-         - { path: ^/dashboard, roles: ROLE_SUPERADMIN }
+
+
+         - { path: ^/admin, roles: ROLE_SUPERADMIN }
+         - { path: ^/produit, roles: ROLE_SUPERADMIN }
+         
+         - { path: ^/app, roles: ROLE_CLIENT }
+         - { path: /commande/ajout, roles: ROLE_CLIENT }
+
         # - { path: ^/profile, roles: ROLE_USER }
     role_hierarchy:
         ROLE_SUPERADMIN: ROLE_CLIENT

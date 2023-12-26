@@ -8,8 +8,8 @@
 {% block body %}
     <div class="n">
         <nav>
-            <h4 class="f">Les produits disponibles pour la catégorie {{ categorie.name }}</h4>
-            <div class="retour"><a href="{{ path('categorie') }}"> <img src="/media/images/retour.png"> Retourner a la page d'Acceuil</a></div>
+
+            <div class="retour"><a href="{{ path('categorie') }}"> <img src="/media/images/retour.png"> Retourner a la page d'aceuille</a></div>
         </nav>
     </div>
 
@@ -21,12 +21,14 @@
                     <div class="name">{{ produit.name }} </div>
                     <div class="description">{{ produit.description }}</div>
                     <div class="ajout_panier">  <a href="{{ path('add', {id : produit.id}) }}"> <p style="color: #0a0a0a;text-decoration-style: dashed">Ajouter au panier</p><img src="/media/images/panier.png"> </a></div>
+                    {% dump(produit.prix) %}
                 </div>
                 <div class="prix">{{ produit.prix }} DT</div>
             </div>
         {% else %}
 
-            <div style="margin-left: 200px; margin-right: 0"><h3 style="font-size: 40px">il n'ya pas des produit pour cette categorie</h3></div>
+                <div ><h3 style="font-size: 40px">produit n'existe pas</h3></div>
+
         {% endfor %}
     </div>
 {% endblock %}

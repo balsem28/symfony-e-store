@@ -55,6 +55,9 @@ class UsersAuthenticator extends AbstractLoginFormAuthenticator
                 if (in_array("ROLE_SUPERADMIN",$user->getRoles(),true)){
                     return new RedirectResponse($this->urlGenerator->generate("dashboard"));
                 }
+                if (in_array("ROLE_CLIENT",$user->getRoles(),true)){
+                    return new RedirectResponse($this->urlGenerator->generate("categorie"));
+                }
             }
 
 

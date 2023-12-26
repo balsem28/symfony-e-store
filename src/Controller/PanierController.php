@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
-
+#[Route('/panier')]
 class PanierController extends AbstractController
 
 {
@@ -53,7 +53,7 @@ class PanierController extends AbstractController
         return $this->redirectToRoute("app_panier");
     }
 
-    #[Route('/panier', name: 'app_panier')]
+    #[Route('/main', name: 'app_panier')]
     public function index(SessionInterface $session, ProduitRepository $produitRepository,CategorieRepository $categorieRepository): Response
     {
         $panier = $session->get("panier",[]);

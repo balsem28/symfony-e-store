@@ -39,7 +39,8 @@ class ProduitType extends AbstractType
                         'maxSize' => '5000k',
                         'mimeTypes' => [
                             'image/png',
-                            'image/jpg',
+                            'image/jpeg',
+                            'image/jfif'
                         ],
                         'mimeTypesMessage' => 'Please upload a valid PDF document',
                     ])
