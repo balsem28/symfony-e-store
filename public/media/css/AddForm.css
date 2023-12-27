@@ -77,3 +77,36 @@ body {
     transform: translateY(-50%);
     pointer-events: none;
 }
+.na {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(70, 140, 253);
+    color: #0a0a0a;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 5px 3px 10px #0a0a0a;
+    position: fixed;
+    width: 100%;
+    transition: background-color 0.5s ease;
+    z-index: 1;
+    top: 0;
+    height: 40px;
+    margin-left: -10px;
+
+
+
+
+
+}
+.project-name {
+    position: absolute;
+    font-family: 'Arial', sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+    margin-top: -20px;
+    margin-left: 0px;
+
+
+
+}

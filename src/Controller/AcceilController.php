@@ -3,8 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Categorie;
+use App\Entity\Produit;
+use App\Entity\Users;
+use App\Form\ProduitType;
+use App\Form\UserForm;
 use App\Repository\ProduitRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -52,5 +58,22 @@ class AcceilController extends AbstractController
 
         ]);
 
+    }
+    #[Route('/{id}/edit', name: 'user', methods: ['GET', 'POST'])]
+    public function edit(Request $request, Users $users, EntityManagerInterface $entityManager): Response
+    {
+        $form = $this->createForm(UserForm::class, $users);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_produit_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('client/information.html.twig', [
+            'users' => $users,
+            'form' => $form,
+        ]);
     }
 }

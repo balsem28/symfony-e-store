@@ -8,7 +8,10 @@
     {% endblock %}
 {% block body %}
     <div class="na">
+
         <nav>
+
+
             <div class="category-container" onmouseleave="hideCategories()">
                 <div class="category-text" id="categoryText" onmouseover="showCategories()">
                     Select a category
@@ -20,6 +23,26 @@
 
                 </div>
             </div>
+            {% if isLogin %}
+            <div class="logt" ><a href="{{ path('app_logout') }}">
+
+                    <img src="/media/images/logoutt.png"></a></div>
+                <div class="modif" ><a href="{{ path('user', {'id': users.id}) }}">
+
+                        <img src="/media/images/modifier.png"></a></div>
+
+            {% endif %}
+
+
+            {% if not isLogin %}
+                <div class="logt" ><a href="{{ path('app_login') }}">
+
+                        <img src="/media/images/login.png"></a></div>
+
+            {% endif %}
+
+
+            <div class="project-name" ><a href={{ path('categorie') }}>ElectroElite</a></div>
 
 
 
@@ -34,9 +57,10 @@
     <section id="produit">
 
         <a href="{{ path('phone') }}"><img src="/media/images/phones.png" alt=""></a>
-        <a href="{{ path('electromenage') }}"><img src="/media/images/azus.png" alt=""></a>
-        <a><img src="/media/images/lap2.png" alt=""></a>
-        <a href="{{ path('laptop') }}"><img src="/media/images/laptop3.png" alt=""></a>
+        <a href="{{ path('laptop') }}"><img src="/media/images/pc.jpg" alt=""></a>
+        <a href="{{ path('electromenage') }}"><img src="/media/images/electrom.jpg" alt=""></a>
+        <a><img src="/media/images/tv.jpg" alt=""></a>
+
 
 
 

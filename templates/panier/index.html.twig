@@ -23,6 +23,21 @@
 
             </div>
         </div>
+        {% if isLogin %}
+            <div class="logt" ><a href="{{ path('app_logout') }}">
+
+                    <img src="/media/images/logout.png"></a>
+                <div><strong>logout</strong></div></div>
+        {% endif %}
+        {% if not isLogin %}
+            <div class="logt" ><a href="{{ path('app_login') }}">
+
+                    <img src="/media/images/login.png"></a>
+                <div style="color: wheat"><strong>Login and register here</strong></div></div>
+        {% endif %}
+
+
+        <div class="project-name" ><a href={{ path('categorie') }}>ElectroElite</a></div>
 
 
 
@@ -76,3 +91,12 @@
 
 
 {% endblock %}
+<footer style="background-color: #0056b3">
+    <h2>Contactez-nous</h2>
+
+
+
+
+
+
+</footer>

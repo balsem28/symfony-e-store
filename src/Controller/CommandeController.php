@@ -10,6 +10,7 @@ use App\Repository\DetailleCommandeRepository;
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -52,8 +53,11 @@ class CommandeController extends AbstractController
         return $this->redirectToRoute('all_commande', [], Response::HTTP_SEE_OTHER);
     }
     #[Route('/ajout', name: 'app_commande')]
-    public function add(SessionInterface $session, ProduitRepository $produitRepository,EntityManagerInterface $entityManager): Response
+    public function add(SessionInterface $session, ProduitRepository $produitRepository,EntityManagerInterface $entityManager,Security $security): Response
     {
+        $categories= 0;
+        $isLogin=true;
+        $users=$security->getUser();
 
         // Check if the user is authenticated
         if ($this->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
@@ -78,7 +82,10 @@ class CommandeController extends AbstractController
 
             }
 
-            return $this->render('commande/index.html.twig');
+            return $this->render('client/home.html.twig',
+            ['categories'=> $categories,
+            'isLogin'=>$isLogin,
+                'users'=>$users,]);
         } else {
             // The user is not authenticated
             // Redirect to login page or handle the situation accordingly

@@ -67,11 +67,18 @@ class PanierController extends AbstractController
             ];
             $totale += $produit->getPrix()*$quantite;
 
+
+
     }
+        $isLogin=false;
+        if ($this->isGranted('IS_AUTHENTICATED_REMEMBERED')){
+            $isLogin=true;
+        }
         return $this->render('panier/index.html.twig',[
                 'categories' => $categorieRepository->findAll(),
                 'dataPanier' => $dataPanier,
-                'totale' => $totale
+                'totale' => $totale,
+                'isLogin'=>$isLogin
 
             ]
 

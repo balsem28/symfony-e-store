@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Commande;
+use App\Repository\CategorieRepository;
 use App\Repository\CommandeRepository;
 use App\Repository\DetailleCommandeRepository;
+use App\Repository\ProduitRepository;
 use App\Repository\UsersRepository;
 use App\Security\EmailVerifier;
 use Doctrine\ORM\EntityManagerInterface;
@@ -45,13 +47,16 @@ class ConfirmCommandController extends AbstractController
     }
 
     #[Route('/confirm/command/{commande}', name: 'app_confirm_command')]
-    public function confirmCommand(Commande $commande , CommandeRepository $repository, EntityManagerInterface $entityManager): Response
+    public function confirmCommand(Commande $commande , CommandeRepository $repository, EntityManagerInterface $entityManager
+    ,CategorieRepository $categorieRepository
+    ,ProduitRepository $produitRepository
+    ,UsersRepository $usersRepository): Response
 
     {
         $user = $commande->getUsers();
-        $count=0;
-        $countProduit=0;
-        $caterories=0;
+        $count=$usersRepository->countAllUsers();
+        $countProduit=$produitRepository->countAllProduit();
+        $caterories=$categorieRepository->findAll();
         $this->emailVerifier->sendEmailConfirmation('app_verify_email_command', $user,
             (new TemplatedEmail())
                 ->from(new Address('alabjaoui18@gmail.com', 'ala'))

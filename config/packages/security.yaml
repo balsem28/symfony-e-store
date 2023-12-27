@@ -43,8 +43,6 @@ security:
 
          - { path: ^/admin, roles: ROLE_SUPERADMIN }
          - { path: ^/produit, roles: ROLE_SUPERADMIN }
-         
-         - { path: ^/app, roles: ROLE_CLIENT }
          - { path: /commande/ajout, roles: ROLE_CLIENT }
 
         # - { path: ^/profile, roles: ROLE_USER }
