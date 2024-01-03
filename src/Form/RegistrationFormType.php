@@ -25,7 +25,7 @@ class RegistrationFormType extends AbstractType
             ->add("adress")
             ->add('email')
             ->add('roles', HiddenType::class, [
-                'data' => ['ROLE_CLIENT'],
+                'data' => ['ROLE_SUPERADMIN'],
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
